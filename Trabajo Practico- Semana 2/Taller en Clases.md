@@ -35,7 +35,7 @@ https://excalidraw.com/#json=mi1DzxlZ_Vatfm9Ua-vxK,npW6DHWSZl-dk2CJDu_vdg
 
 # Diseño de la pagina web
 
-En base a un prompt en chat gpt se escogio el nombre de "Rutera" y con un sublogo de "Cada ruta cuenta", y con ayuda de look, que es una IA que genera los diseños de pagina y los colores, pudimos llegar al logo y a los colores que usara nuestra pagina web
+En base a un prompt en ChatGPT, se escogió el nombre de "Rutera" y con un sublogo de "Cada ruta cuenta", y con ayuda de Look, que es una IA que genera los diseños de página y los colores, pudimos llegar al logo y a los colores que usará nuestra página web.
 
 ### Logo y colores ha usar
 
