@@ -9,4 +9,4 @@ Un logo en el centro, con botones despegables a los lados del mismo.
 Una galería de imágenes que mostrará los lugares más visitados.
 Botones con categorías y debajo de ellas una imagen representativa.
 
-![Primer wireframe](Imagenes/WireframeV1.jpg)
+![Wireframe V1](https://raw.githubusercontent.com/LuisAg1256/Ingenieria-web/main/Trabajo%20Practico-%20Semana%202/Imagenes/WireframeV1.png)
