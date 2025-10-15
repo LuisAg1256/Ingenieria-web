@@ -26,3 +26,21 @@ https://demo.templatemonster.com/pt-br/demo/287151.html?_gl=1*z7hrvt*_ga*MTk1NTk
 Para el segundo boceto, lo cambié en casi la mayoría, ya que el logo lo puse al lado izquierdo, con botones de la página como home, contacto, ofertas, etc., como botones desplegables. Además de eso, puse los contactos de la cuenta vinculados como Instagram, Twitter, Facebook, el Gmail y la propia cuenta en la página para hacer configuración si son necesarios (cambios de nombre, teléfono, email, etc.), todo esto dentro de un menú desplegable o header que se mueve según el usuario scrollea en la página. Agregue también en la página de inicio una imagen representativa, con un texto "inspirador" sobre el viaje y rutas turísticas, A la vez un mini menú que nos mostrará contenido dependiendo de lo que el usuario escoja, como vuelos, hoteles, actividades, rutas. También puse un apartado con los lugares más visitados que cuentan con una imagen del lugar, el nombre, su calificación en "estrellas" y apartado de comentarios. Más abajo puse una sección de ofertas donde se mostrarán todas las ofertas que cuenta la página, con fotos de los lugares, un botón para agregar como "favoritos", los puntos de partida y de destino, el precio y un botón por si se desea más información, y finalmente puse un apartado de contáctanos como pie de página.
 
 ![Wireframe 2](https://raw.githubusercontent.com/LuisAg1256/Ingenieria-web/main/Trabajo%20Practico-%20Semana%202/Imagenes/Wirefram2.JPG)
+
+## ExcaliburDraw
+
+Pagina donde se encuentran los bocetos realizados: 
+
+https://excalidraw.com/#json=mi1DzxlZ_Vatfm9Ua-vxK,npW6DHWSZl-dk2CJDu_vdg
+
+# Diseño de la pagina web
+
+En base a un prompt en chat gpt se escogio el nombre de "Rutera" y con un sublogo de "Cada ruta cuenta", y con ayuda de look, que es una IA que genera los diseños de pagina y los colores, pudimos llegar al logo y a los colores que usara nuestra pagina web
+
+### Logo y colores ha usar
+
+![Captura logo1](https://raw.githubusercontent.com/LuisAg1256/Ingenieria-web/main/Trabajo%20Practico-%20Semana%202/Imagenes/Cap1.png)
+
+### Paleta de colores
+
+![Captura logo2](https://raw.githubusercontent.com/LuisAg1256/Ingenieria-web/main/Trabajo%20Practico-%20Semana%202/Imagenes/Cap2.png)
