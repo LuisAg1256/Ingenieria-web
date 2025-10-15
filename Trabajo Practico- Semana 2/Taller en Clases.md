@@ -9,4 +9,4 @@ Un logo en el centro, con botones despegables a los lados del mismo.
 Una galería de imágenes que mostrará los lugares más visitados.
 Botones con categorías y debajo de ellas una imagen representativa.
 
-![Primer wireframe](img/diagrama.jpg)
+![Primer wireframe](Imagenes/Wireframe V1.jpg)
