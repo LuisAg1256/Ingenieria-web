@@ -50,22 +50,31 @@ Con XAMPP podemos instalar WordPress en nuestra PC para probar y desarrollar sit
 
 Posterior a la instalacion y ejecucion de XAMPP utilizamos el control panel para iniciar los servicios.
 
-![Wireframe V1](https://github.com/LuisAg1256/Ingenieria-web/tree/main/Taller%20en%20clase%20-%20Semana%203/Foto/xamp%20foto.png)
+![Descripción de la imagen](https://raw.githubusercontent.com/LuisAg1256/Ingenieria-web/main/Taller%20en%20clase%20-%20Semana%203/Foto/xamp%20foto.png))
 
 Verificamos que XAMMP este funcionando en el navegador con localhost/
 
-foto de xaamp pagina
+![Captura de funcionamiento XAMPP](https://raw.githubusercontent.com/LuisAg1256/Ingenieria-web/main/Taller%20en%20clase%20-%20Semana%203/Foto/caputaDeFuncionamientoXaamp.png)
 
 Una vez verificado creamos un proyecto en la carpeta de xampp que se instalo en el disco "C"
 
 Creamos la base de datos desde XAMMP PHP 
 
-
+![Base de datos](https://raw.githubusercontent.com/LuisAg1256/Ingenieria-web/main/Taller%20en%20clase%20-%20Semana%203/Foto/Base%20de%20datos.png)
 
 En la carpeta que descomprimimos de wordpress le cambiamos el nombre por el nombre de nuestro proyecto en este caso "Tia"
 
-Configuramos wordpress abriendo desde localhost/ingWeb/tia/  
+Configuramos wordpress abriendo desde localhost/ingWeb/tia/
 
+![Base de datos](https://github.com/LuisAg1256/Ingenieria-web/blob/main/Taller%20en%20clase%20-%20Semana%203/Foto/wordpres.png)
+
+Una vez que este levantada ya podemos editar a nuestro gusto nuestra pagina
+
+Partiendo por el inicio de sesion.
+
+![Base de datos](https://github.com/LuisAg1256/Ingenieria-web/blob/main/Taller%20en%20clase%20-%20Semana%203/Foto/wordpres%20funcionando.png)
+
+Listo, posterior a esto, vimos varios plugins que nos ayudaran como el smart slider o el woocommerce. 
 
 
 
