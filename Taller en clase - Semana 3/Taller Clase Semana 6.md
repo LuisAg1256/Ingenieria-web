@@ -57,8 +57,16 @@ Verificamos que XAMMP este funcionando en el navegador con localhost/
 foto de xaamp pagina
 
 Una vez verificado creamos un proyecto en la carpeta de xampp que se instalo en el disco "C"
+
 Creamos la base de datos desde XAMMP PHP 
+
+
+
 En la carpeta que descomprimimos de wordpress le cambiamos el nombre por el nombre de nuestro proyecto en este caso "Tia"
+
+Configuramos wordpress abriendo desde localhost/ingWeb/tia/  
+
+
 
 
 
