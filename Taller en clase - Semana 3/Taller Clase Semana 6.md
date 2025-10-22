@@ -50,7 +50,7 @@ Con XAMPP podemos instalar WordPress en nuestra PC para probar y desarrollar sit
 
 Posterior a la instalacion y ejecucion de XAMPP utilizamos el control panel para iniciar los servicios.
 
-![Wireframe V1](https://github.com/LuisAg1256/Ingenieria-web/edit/main/Taller%20en%20clase%20-%20Semana%203/Taller%20Clase%20Semana%206.md/Foto/xamp foto.png)
+![Wireframe V1](https://github.com/LuisAg1256/Ingenieria-web/edit/main/Taller%20en%20clase%20-%20Semana%203/Taller%20Clase%20Semana%206.md/Foto/xamp%20foto.png)
 
 Verificamos que XAMMP este funcionando en el navegador con localhost/
 
@@ -65,6 +65,7 @@ Creamos la base de datos desde XAMMP PHP
 En la carpeta que descomprimimos de wordpress le cambiamos el nombre por el nombre de nuestro proyecto en este caso "Tia"
 
 Configuramos wordpress abriendo desde localhost/ingWeb/tia/  
+
 
 
 
