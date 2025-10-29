@@ -1,0 +1,98 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
+}
+/*
+nav{
+    background-color: brown;
+    color: aquas;
+}
+    */
+section.slider{
+    background-color: brown;
+    color:aliceblue;
+    width: 80%;
+    margin: 2px auto;
+    height: 400px;
+    text-align: center;
+}
+section.slider div{
+    padding: 30px;
+}
+section.slider div h2{
+    font-family: "Lobster Two", sans-serif;
+}
+
+.auspiciantes{
+    background-color: aqua;
+    color: aliceblue;
+    width: 80%;
+    margin: 2px auto;
+}
+.h6{
+    
+    background-color: rgb(43, 209, 21);
+    color: aliceblue;
+    width: 80%;
+    margin: 2px auto;
+}
+#noticias{
+    background-color: blue;
+    color:aliceblue ;
+    width: 80%;
+    margin: 2px auto;
+}
+
+
+header.cabeceraPrincipal, .menuPrincipal{
+    background-color: blue;
+    color: aliceblue;
+
+    width: 80%;
+    margin: 0 auto;  
+
+}
+.menuPrincipal{
+    background-color: red;
+    color: aliceblue;
+    margin: 2px auto;
+    text-align: center;
+}
+nav.menuPrincipal a{
+    color: aliceblue;
+    margin: 20px;
+
+    text-decoration: none;
+}
+nav.menuPrincipal a:hover{
+    background-color: aliceblue;
+    color: red;
+    margin: 5px;
+    text-decoration: none;
+    border-bottom: blue 1px solid;
+}
+.logotivo{
+    background-color: white;
+    color: rgb(211, 26, 26);
+    width: 30%;
+
+    display: inline-block;
+    margin: 10px;
+}
+.busqueda{
+    background-color: rgb(57, 223, 79);
+    color: rgb(255, 255, 255);
+    width: 60%;
+
+    display: inline-block;
+    margin: 10px;
+}
