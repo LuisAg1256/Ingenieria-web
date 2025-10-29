@@ -97,6 +97,7 @@ Detallan **cómo los objetos colaboran** entre sí para cumplir una función.
 +-------------------+
 | + estudiar()      |
 +-------------------+
+```
 
 # 🌐 HTML5
 
@@ -178,4 +179,25 @@ Fue desarrollado por el **W3C (World Wide Web Consortium)** y el **WHATWG (Web H
   </footer>
 </body>
 </html>
+```
+
+# 🌐 Web Semántica
+
+## 📘 ¿Qué es?
+
+La **Web Semántica** es una extensión de la web tradicional propuesta por **Tim Berners-Lee**, creador de la World Wide Web.  
+Su objetivo es hacer que la información en Internet sea **comprensible tanto por humanos como por máquinas**, permitiendo que los datos estén **conectados y tengan significado**.
+
+---
+
+## 🧩 Características principales
+
+- Uso de **metadatos** para describir el contenido de forma más precisa.  
+- Basada en tecnologías como **RDF (Resource Description Framework)**, **OWL (Web Ontology Language)** y **SPARQL**.  
+- Permite la **interoperabilidad** entre diferentes sistemas y fuentes de datos.  
+- Facilita la **automatización**, el **razonamiento** y la **búsqueda inteligente** de información.
+
+---
+
+# Taller
 
