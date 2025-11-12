@@ -1,0 +1,13 @@
+jQuery(document).ready(function($){
+    jQuery(document).scroll(function(){
+        if($(jQuery(document).scroll).scrollTop()>650){
+            $('#menuPrincipal').addClass('bgSiteMenu');
+            $("#logotipo").addClass("logotipo1");
+            $("#logotipo").removeClass("logotipo2");
+        }else{
+            $("#menuPrincipal").removeClass("bgSiteMenu");
+            $("#logotipo").removeClass("logotipo1");
+            $("#logotipo").addClass("logotipo2");
+        }
+    });
+});
