@@ -1,18 +1,16 @@
-// CAMBIO DE NAV CON SCROLL
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 250) {
-            $('#menuPrincipal').addClass('bgSiteMenu');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+            $('.navBar').addClass('bgSiteMenu small');
             $("#logotipo").addClass("logotipo1").removeClass("logotipo2");
         } else {
-            $('#menuPrincipal').removeClass('bgSiteMenu');
-            $("#logotipo").removeClass("logotipo1").addClass("logotipo2");
+            $('.navBar').removeClass('bgSiteMenu small');
+            $("#logotipo").addClass("logotipo2").removeClass("logotipo1");
         }
     });
 
-    // BOTÓN VOLVER ARRIBA
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $("#btnTop").fadeIn();
         } else {
@@ -20,8 +18,27 @@ $(document).ready(function() {
         }
     });
 
-    $("#btnTop").click(function() {
+    $("#btnTop").click(function () {
         $("html, body").animate({ scrollTop: 0 }, 600);
+    });
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+        slides.forEach(s => s.classList.remove("active"));
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1; }
+        slides[slideIndex - 1].classList.add("active");
+        setTimeout(showSlides, 5000);
+    }
+    showSlides();
+
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menuPrincipal");
+
+    hamburger.addEventListener("click", () => {
+        menu.classList.toggle("show");
     });
 
 });

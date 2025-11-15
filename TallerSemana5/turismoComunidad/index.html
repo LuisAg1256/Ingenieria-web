@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo Comunitario</title>
+    <title>Turismo Comunitario Ecuador</title>
 
-    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Fuentes modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
@@ -17,71 +20,140 @@
 <!-- BOTÓN SUBIR -->
 <div id="btnTop">↑</div>
 
-<div id="header">
-    <!-- NAV -->
-    <nav class="navBar" id="menuPrincipal">
-        <div class="contenedor">
-            <div class="logo logotipo2" id="logotipo"></div>
-            <a href="#header">HOME</a>
-            <a href="#proyecto">PROYECTO</a>
-            <a href="#cliente">CLIENTES</a>
-            <a href="#">EQUIPO</a>
-            <a href="#">PROCESO</a>
-            <a href="internas/login.html">LOGIN</a>
+<!-- NAV FUERA DEL HEADER (CORREGIDO) -->
+<nav class="navBar">
+    <div class="contenedor nav-content">
+        <div class="logo logotipo2" id="logotipo"></div>
+
+        <ul class="menu" id="menuPrincipal">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#proyecto">Proyecto</a></li>
+            <li><a href="#cliente">Clientes</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="internas/login.html">Login</a></li>
+        </ul>
+
+        <!-- menú responsive -->
+        <div class="hamburger" id="hamburger">
+            ☰
         </div>
-    </nav>
+    </div>
+</nav>
+
+<header id="header">
 
     <!-- SLIDER -->
-    <section class="contenedor-imagen">
-        <img src="images/slider1.jpg" alt="Slider Principal">
+    <section class="slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc');"></div>
+
         <div class="slider-text">
             <h1>Turismo Comunitario Ecuador</h1>
             <p>Conectando cultura, naturaleza y experiencias únicas</p>
         </div>
     </section>
 
-    <!-- CONTENIDO -->
-    <main id="blog">
-        <div class="espacio"></div>
+</header>
 
-        <div class="contenedor fade-in">
-            <div class="contenido">
-                <div class="post" id="proyecto">
-                    <h2 class="titulo">Proyecto de Turismo Comunitario</h2>
-                    <p class="slogans">Plataforma de apoyo al turista</p>
-                    <img src="images/proyecto.png" alt="">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor qui nobis omnis aliquam provident error cum quidem quos sunt adipisci?
-                        Vero dignissimos, amet veritatis esse a ad nihil in quasi.
-                    </p>
-                </div>
-            </div>
+<!-- CONTENIDO -->
+<main id="blog">
+
+    <section class="contenedor fade-in" id="proyecto">
+        <div class="post">
+            <h2 class="titulo">Proyecto de Turismo Comunitario</h2>
+            <p class="slogans">Plataforma de apoyo al turista</p>
+            <img src="images/proyecto.png" alt="Proyecto">
+            <p>
+                El turismo comunitario permite conectar a los visitantes con la esencia cultural de las comunidades a 
+                través de experiencias auténticas que promueven el desarrollo sostenible y el respeto por las tradiciones.
+            </p>
+        </div>
+    </section>
+
+    <div class="espacio"></div>
+
+    <!-- CLIENTES -->
+    <section class="post fullwidth bgazul fade-in" id="cliente">
+        <h2>Clientes</h2>
+
+        <div class="numIndicador">
+            <div class="clienteindicador">Ministerio de Turismo (MINTUR)</div>
+            <div class="clienteindicador">Universidad Técnica Particular de Loja (UTPL)</div>
+            <div class="clienteindicador">GAD Municipal de Loja</div>
+            <div class="clienteindicador">Banco de Loja</div>
+        </div>
+    </section>
+
+    <div class="espacio"></div>
+
+    <!-- EQUIPO -->
+    <section class="contenedor fade-in" id="equipo">
+        <div class="post">
+            <h2>Equipo de Desarrollo</h2>
         </div>
 
-        <div class="espacio"></div>
-
-        <!-- CLIENTES -->
-        <section class="post fullwidth bgazul fade-in" id="cliente">
-            <h2>Clientes</h2>
-
-            <div class="indicadorbox">
-                <div class="numIndicador">
-                    <div class="clienteindicador">MINTOUR</div>
-                    <div class="clienteindicador">UTPL</div>
-                    <div class="clienteindicador">GAD LOJA</div>
-                    <div class="clienteindicador">BANCO DE LOJA</div>
-                </div>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe" alt="">
+                <h3>Analista</h3>
+                <p>Planeación del sistema y definición de requerimientos.</p>
             </div>
-        </section>
 
-        <div class="espacio"></div>
-    </main>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="">
+                <h3>Desarrollador</h3>
+                <p>Implementación del código y construcción de módulos.</p>
+            </div>
 
-    <!-- FOOTER -->
-    <footer class="piePagina">
-        <h6>Universidad Técnica Particular de Loja</h6>
-    </footer>
-</div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a" alt="">
+                <h3>Diseño UX/UI</h3>
+                <p>Diseños modernos, intuitivos y centrados en el usuario.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="espacio"></div>
+
+    <!-- PROCESO -->
+    <section class="contenedor fade-in" id="proceso">
+        <div class="post">
+            <h2>Proceso de Desarrollo</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="t-item">
+                <h3>Análisis</h3>
+                <p>Revisión de necesidades del turista y de la comunidad.</p>
+            </div>
+
+            <div class="t-item">
+                <h3>Diseño</h3>
+                <p>Prototipos, arquitectura y plan de navegación.</p>
+            </div>
+
+            <div class="t-item">
+                <h3>Desarrollo</h3>
+                <p>Construcción de interfaces y lógica del sistema.</p>
+            </div>
+
+            <div class="t-item">
+                <h3>Pruebas</h3>
+                <p>Verificación y validación del funcionamiento.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="espacio"></div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="piePagina">
+    <h6>Universidad Técnica Particular de Loja</h6>
+</footer>
 
 </body>
 </html>

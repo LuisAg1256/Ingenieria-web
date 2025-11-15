@@ -1,59 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo Comunitario</title>
-    <link rel="icon" href="../images/favicon.png" sizes="32x32">
-    <link rel="stylesheet" href="../css/estilos.css">
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/script.js"></script>
+    <title>Login | Turismo Comunitario</title>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <div id="header">
-        <nav class="navBar" id="menuPrincipal">
-            <div class="contenedor">
-                <div class="logo logotipo1" id="logotipo"></div>
-                <a href="../#header">HOME</a>
-                <a href="../#proyecto">PROYECTO</a>
-                <a href="../#cliente">CLIENTES</a>
-                <a href="">EQUIPO</a>
-                <a href="">PROCESO</a>
-                <a href="">LOGIN</a>
 
-            </div>
-        </nav>
-        <section class="contenedor-imagen">
-            <img src="../images/slider1.jpg" alt="Slider Principal">
-        </section>
-        <main id="blog">
-            <div class="contenedor">
-                <div class="contenido">
-                    <div class="post" id="proyecto">
-                    <h2 class="titulo"> FORMULARIO DE INGRESO AL SISTEMA</h2>
-                    <p class="slogans"> Utiliza las credeenciales de acceso</p>
-                    <form action="">
-                        <div class="grupoInput">
-                            <label for="correo">Correo</label>
-                            <input type="email" id="correo" class="caja" placeholder="Ingrese el correo" required>
-                        </div>
-                        <div class="grupoInput">
-                            <label for="contra">Clave</label>
-                            <input type="password" id="contra" class="caja" placeholder="Ingrese la contraseña" required>
-                        </div>
-                        <div class="grupoInput">                        
-                            <input type="submit" class="btn btn-primary" value="Ingresar">
-                        </div>
-                    </form>
-                    </div>
+    <div class="login-wrapper fade-in">
+        <div class="login-card">
+            <div class="logoLogin"></div>
+
+            <h2>Bienvenido</h2>
+            <p class="sub">Inicia sesión para continuar</p>
+
+            <form id="formLogin">
+                <div class="input-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" placeholder="Ingresa tu correo" required>
                 </div>
-            </div>
-            <div class="espacio"></div>
-        </main>
-        <footer class="piePagina" id="pie">
-            <h6>Universidad Tecnica Particular De LOJA</h6>
-        </footer>
+
+                <div class="input-group">
+                    <label for="contra">Contraseña</label>
+                    <input type="password" id="contra" placeholder="Ingresa tu contraseña" required>
+                </div>
+
+                <button type="submit" class="btn-login">Ingresar</button>
+            </form>
+
+            <p id="mensajeError" class="mensaje-error"></p>
+        </div>
     </div>
+
+    <script src="../js/login.js"></script>
 </body>
 </html>

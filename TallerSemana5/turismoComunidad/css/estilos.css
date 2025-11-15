@@ -5,126 +5,153 @@
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     background-color: #f2f2f2;
+    color: #333;
 }
 
 a {
     text-decoration: none;
-    outline: none;
     color: inherit;
 }
-a:hover { text-decoration: underline; }
 
-/* CONTENEDOR */
 .contenedor {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+}
+
+/* NAV BAR */
+.navBar {
+    position: fixed;        /* ← YA NO ES STICKY */
+    width: 100%;
+    padding: 8px 0;            /* ← ajustado para logo grande */
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    z-index: 1000;
+    transition: 0.4s ease;
+}
+
+.nav-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-/* NAV BAR MEJORADO */
-.navBar {
-    position: sticky;
-    top: 0;
-    padding: 10px 0;
-    z-index: 1000;
-
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-
-    transition: 0.3s ease-in-out;
-}
-
-.navBar a {
-    color: #fff;
-    padding: 15px 20px;
-    transition: 0.3s;
-}
-
-.navBar a:hover {
-    background-color: rgba(0, 51, 93, 0.8);
-    color: #eaab00;
-}
-
-/* NAV CAMBIO AL HACER SCROLL */
-.bgSiteMenu {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(10px);
-}
-
-.bgSiteMenu a { color: #00335D !important; }
-
-/* LOGO */
+/* LOGO MÁS GRANDE */
 .logo {
-    width: 120px;
-    height: 60px;
-}
-.logotipo1 {
-    background-image: url('../images/logo-App2.png');
+    width: 200px;      /* ← AUMENTADO */
+    height: 100px;     /* ← AUMENTADO */
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
-.logotipo2 {
-    background-image: url('../images/logo-App.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+
+.logotipo1 { background-image: url('../images/logo-App2.png'); }
+.logotipo2 { background-image: url('../images/logo-App.png'); }
+
+/* MENÚ */
+.menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.menu li a {
+    padding: 12px 18px;
+    color: #fff;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.menu li a:hover {
+    background-color: rgba(0,51,93,0.8);
+    color: #ffd75e;
+    border-radius: 8px;
+}
+
+/* MENÚ SCROLL */
+.bgSiteMenu {
+    background: rgba(255,255,255,0.9) !important;
+}
+
+.bgSiteMenu a {
+    color: #00335D !important;
+}
+
+/* RESPONSIVE */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* SLIDER */
-.contenedor-imagen {
+.slider {
     width: 100%;
-    height: 500px;
+    height: 550px;
     position: relative;
+    overflow: hidden;
 }
 
-.contenedor-imagen img {
+.slide {
+    position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
-.contenedor-imagen::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+.slide.active {
+    opacity: 1;
 }
 
 .slider-text {
     position: absolute;
-    bottom: 50px;
-    left: 50px;
+    bottom: 60px;
+    left: 60px;
     color: #fff;
     z-index: 10;
 }
 
 .slider-text h1 {
-    font-size: 36px;
-    font-weight: bold;
-}
-.slider-text p {
-    font-size: 18px;
-    opacity: 0.85;
+    font-size: 42px;
+    font-weight: 700;
 }
 
-/* CONTENIDO */
+.slider-text p {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* RESTO DE TU CSS (SIN CAMBIOS) -------------------------------- */
+
 .post {
     text-align: center;
 }
 
-.post h2 {
+.post img {
+    width: 60%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.titulo {
     color: #eaab00;
-    padding: 2em 0;
+    padding: 1em 0;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-weight: 700;
 }
 
 .post h2::after {
@@ -133,32 +160,35 @@ a:hover { text-decoration: underline; }
     width: 80px;
     height: 3px;
     background: #eaab00;
-    margin: 10px auto 0;
+    margin: 10px auto 20px;
 }
 
-.espacio { margin: 6em 0; }
+.espacio {
+    margin: 6em 0;
+}
 
-/* SECCIÓN CLIENTES */
 .bgazul {
     background-color: #00335D;
-    padding-bottom: 3em;
+    padding: 3em 0;
+    color: #fff;
 }
 
 .numIndicador {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 25px;
     width: 80%;
-    margin: 0 auto;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
 }
 
 .clienteindicador {
     padding: 3em 0;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 15px;
+    border: 2px solid #fff;
+    border-radius: 12px;
     background-color: rgba(255,255,255,0.15);
-    transition: 0.3s;
+    transition: 0.4s;
+    text-align: center;
+    font-weight: 600;
 }
 
 .clienteindicador:hover {
@@ -167,12 +197,62 @@ a:hover { text-decoration: underline; }
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* ANIMACIÓN FADE IN */
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+    padding-bottom: 1.5em;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* TIMELINE */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.t-item {
+    background: #fff;
+    border-left: 8px solid #eaab00;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.t-item h3 {
+    margin-bottom: 10px;
+    color: #00335D;
+}
+
+/* FADE IN */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     animation: fade 1s forwards;
 }
+
 @keyframes fade {
     to {
         opacity: 1;
@@ -183,15 +263,17 @@ a:hover { text-decoration: underline; }
 /* BOTÓN SUBIR */
 #btnTop {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 25px;
+    bottom: 25px;
+    padding: 15px 18px;
     background: #00335D;
     color: #fff;
-    padding: 15px;
     border-radius: 50%;
-    cursor: pointer;
+    font-size: 20px;
     display: none;
+    cursor: pointer;
     transition: 0.3s;
+    z-index: 900;
 }
 
 #btnTop:hover {
@@ -199,16 +281,28 @@ a:hover { text-decoration: underline; }
     color: #00335D;
 }
 
-/* FOOTER */
-.piePagina {
-    background: #000;
-    padding: 3em 0;
-    border-top: 3px solid #eaab00;
-    text-align: center;
-}
+/* RESPONSIVE */
+@media (max-width: 850px) {
+    .menu {
+        position: absolute;
+        background: rgba(0,0,0,0.9);
+        right: 0;
+        top: 80px;
+        width: 60%;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        padding-top: 40px;
+        transform: translateX(100%);
+        transition: 0.4s;
+    }
 
-.piePagina h6 {
-    color: #ccc;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    .menu.show {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
