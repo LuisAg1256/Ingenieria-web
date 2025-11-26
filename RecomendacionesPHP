@@ -1,0 +1,254 @@
+Perfecto.
+Aquí tienes **TODO en un solo archivo Markdown listo para GitHub**, sin explicaciones externas, totalmente copiable y pegable como `README.md`.
+
+---
+
+# 📄 **README.md (COMPLETO PARA COPIAR Y PEGAR)**
+
+```markdown
+# Proyecto PHP + MySQL — CRUD Completo
+
+Este proyecto contiene un CRUD básico en PHP con MySQL.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+
+/proyecto_php/
+│── index.php
+│── conexion.php
+│── listar.php
+│── insertar.php
+│── editar.php
+│── eliminar.php
+└── estilos.css (opcional)
+
+````
+
+---
+
+## 🔌 conexion.php
+
+```php
+<?php
+$host = "localhost";
+$usuario = "root";
+$clave = "";
+$base = "examen_php";
+
+$conexion = new mysqli($host, $usuario, $clave, $base);
+
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+?>
+````
+
+---
+
+## 🏠 index.php
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto PHP para Examen</title>
+</head>
+<body>
+
+<h1>Proyecto PHP + MySQL</h1>
+
+<ul>
+    <li><a href="listar.php">Listar datos</a></li>
+    <li><a href="insertar.php">Insertar datos</a></li>
+</ul>
+
+</body>
+</html>
+```
+
+---
+
+## 📄 listar.php
+
+```php
+<?php
+include "conexion.php";
+
+$resultado = $conexion->query("SELECT * FROM usuarios");
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Usuarios</title>
+</head>
+<body>
+
+<h2>Usuarios Registrados</h2>
+
+<a href="insertar.php">➕ Insertar nuevo usuario</a>
+<br><br>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Acciones</th>
+    </tr>
+
+<?php while($fila = $resultado->fetch_assoc()) { ?>
+    <tr>
+        <td><?= $fila['id'] ?></td>
+        <td><?= $fila['nombre'] ?></td>
+        <td><?= $fila['email'] ?></td>
+        <td>
+            <a href="editar.php?id=<?= $fila['id'] ?>">✏ Editar</a> |
+            <a href="eliminar.php?id=<?= $fila['id'] ?>">❌ Eliminar</a>
+        </td>
+    </tr>
+<?php } ?>
+
+</table>
+
+</body>
+</html>
+```
+
+---
+
+## ✍ insertar.php
+
+```php
+<?php
+include "conexion.php";
+
+if ($_POST) {
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+
+    $conexion->query("INSERT INTO usuarios(nombre, email) VALUES('$nombre', '$email')");
+    header("Location: listar.php");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar Usuario</title>
+</head>
+<body>
+
+<h2>Insertar Usuario</h2>
+
+<form method="POST">
+    Nombre: <input type="text" name="nombre" required><br><br>
+    Email: <input type="email" name="email" required><br><br>
+    <button type="submit">Guardar</button>
+</form>
+
+</body>
+</html>
+```
+
+---
+
+## ✏ editar.php
+
+```php
+<?php
+include "conexion.php";
+
+$id = $_GET['id'];
+
+$usuario = $conexion->query("SELECT * FROM usuarios WHERE id=$id")->fetch_assoc();
+
+if ($_POST) {
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+
+    $conexion->query("UPDATE usuarios SET nombre='$nombre', email='$email' WHERE id=$id");
+
+    header("Location: listar.php");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+</head>
+<body>
+
+<h2>Editar Usuario</h2>
+
+<form method="POST">
+    Nombre:<br>
+    <input type="text" name="nombre" value="<?= $usuario['nombre'] ?>" required><br><br>
+
+    Email:<br>
+    <input type="email" name="email" value="<?= $usuario['email'] ?>" required><br><br>
+
+    <button type="submit">Actualizar</button>
+</form>
+
+</body>
+</html>
+```
+
+---
+
+## ❌ eliminar.php
+
+```php
+<?php
+include "conexion.php";
+
+$id = $_GET['id'];
+
+$conexion->query("DELETE FROM usuarios WHERE id=$id");
+
+header("Location: listar.php");
+exit();
+?>
+```
+
+---
+
+## 🗃 SQL para crear la base de datos
+
+```sql
+CREATE DATABASE examen_php;
+
+USE examen_php;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(80),
+    email VARCHAR(120)
+);
+```
+
+---
+
+## 📌 Consultas SQL básicas
+
+```sql
+SELECT * FROM usuarios;
+INSERT INTO usuarios(nombre, email) VALUES ('Juan', 'juan@gmail.com');
+UPDATE usuarios SET email='nuevo@gmail.com' WHERE id = 1;
+DELETE FROM usuarios WHERE id = 1;
+SELECT COUNT(*) FROM usuarios;
+SELECT * FROM usuarios ORDER BY nombre ASC;
+SELECT * FROM usuarios LIMIT 5;
+```
+
+---
+
+
