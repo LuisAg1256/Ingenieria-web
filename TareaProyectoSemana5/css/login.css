@@ -1,46 +1,34 @@
-/* Fondo y centrado */
 body {
     font-family: 'Poppins', Arial, sans-serif;
     background: linear-gradient(135deg, #00335D, #006D77);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Animación fade-in */
+/* Animación */
 .fade-in {
     opacity: 0;
     animation: fadeIn 1.2s forwards;
 }
+@keyframes fadeIn { to { opacity: 1; } }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-/* Card del login (Bootstrap + ajustes propios) */
+/* Card más grande */
 .login-card {
     background: #fff;
     padding: 40px 35px;
     border-radius: 15px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
     text-align: center;
-    max-width: 420px;
     width: 100%;
+    max-width: 680px; 
+    max-height: 95vh;
+    overflow-y: auto; /* scroll si hay muchos campos */
 }
 
-/* Logo */
-.logoLogin {
-    width: 150px;
-    height: 80px;
-    background-image: url('../images/logo-App2.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0 auto 10px auto;
-}
 
-/* Títulos */
+
 h2 {
     color: #00335D;
     font-size: 28px;
@@ -53,8 +41,9 @@ h2 {
     font-size: 14px;
 }
 
-/* Ajustes extra a inputs Bootstrap */
-.form-control {
+/* Inputs Bootstrap mejorados */
+.form-control,
+.form-select {
     padding: 12px;
     border-radius: 10px;
     font-size: 15px;
@@ -62,7 +51,8 @@ h2 {
     transition: 0.3s !important;
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: #eaab00;
     box-shadow: 0 0 6px rgba(234, 171, 0, 0.5);
 }
@@ -76,8 +66,8 @@ h2 {
     border-radius: 10px;
     background: #00335D;
     color: #fff;
-    transition: 0.3s ease;
     border: none;
+    transition: 0.3s;
 }
 
 .btn-login:hover {
@@ -85,7 +75,7 @@ h2 {
     color: #00335D;
 }
 
-/* Mensaje de error */
+/* Error */
 .mensaje-error {
     margin-top: 15px;
     color: red;

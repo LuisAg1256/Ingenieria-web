@@ -303,7 +303,7 @@ img { max-width: 100%; display: block; }
     grid-auto-rows: 240px;
   }
   .dest-card-wide {
-    grid-column: span 2;          /* Ocupa toda la fila en tablet/móvil */
+    grid-column: span 2;          
   }
 }
 

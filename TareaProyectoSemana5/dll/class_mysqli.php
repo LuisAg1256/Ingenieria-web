@@ -1,3 +1,4 @@
+
 <?php
 class clase_mysqli{
 	/*variables de conexoion*/
