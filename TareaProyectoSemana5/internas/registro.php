@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Turismo Comunitario</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- TU CSS -->
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper fade-in">
+        <div class="login-card">
+
+            <div class="logoLogin"></div>
+
+            <h2>Bienvenido</h2>
+            <p class="sub">Inicia sesión para continuar</p>
+
+            <form id="formLogin">
+
+                <div class="input-group mb-3">
+                    <label for="correo" class="form-label">Correo</label>
+                    <input type="email" id="correo" class="form-control" placeholder="Ingresa tu correo" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label for="contra" class="form-label">Contraseña</label>
+                    <input type="password" id="contra" class="form-control" placeholder="Ingresa tu contraseña" required>
+                </div>
+
+                <button type="submit" class="btn-login">Ingresar</button>
+            </form>
+
+            <p id="mensajeError" class="mensaje-error"></p>
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* Fondo y centrado */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #00335D, #006D77);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animación fade-in */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Card del login (Bootstrap + ajustes propios) */
+.login-card {
+    background: #fff;
+    padding: 40px 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+}
+
+/* Logo */
+.logoLogin {
+    width: 150px;
+    height: 80px;
+    background-image: url('../images/logo-App2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 10px auto;
+}
+
+/* Títulos */
+h2 {
+    color: #00335D;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.sub {
+    color: #777;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* Ajustes extra a inputs Bootstrap */
+.form-control {
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    transition: 0.3s !important;
+}
+
+.form-control:focus {
+    border-color: #eaab00;
+    box-shadow: 0 0 6px rgba(234, 171, 0, 0.5);
+}
+
+/* Botón */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 10px;
+    background: #00335D;
+    color: #fff;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.btn-login:hover {
+    background: #eaab00;
+    color: #00335D;
+}
+
+/* Mensaje de error */
+.mensaje-error {
+    margin-top: 15px;
+    color: red;
+    font-size: 14px;
+    min-height: 18px;
+}
