@@ -22,18 +22,18 @@
             <h2>Bienvenido</h2>
             <p class="sub">Inicia sesión para continuar</p>
 
-            <form id="formLogin">
+            <form action="../dll/validar.php" id="formLogin" method="post">
 
                 <div class="input-group mb-3">
                     <label for="correo" class="form-label">Correo</label>
-                    <input type="email" id="correo" class="form-control" placeholder="Ingresa tu correo" required>
+                    <input type="email" id="correo" name="correo" class="form-control" placeholder="Ingresa tu correo" required>
                 </div>
 
                 <div class="input-group mb-3">
-                    <label for="contra" class="form-label">Contraseña</label>
-                    <input type="password" id="contra" class="form-control" placeholder="Ingresa tu contraseña" required>
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Ingresa tu contraseña" required>
                 </div>
-
+                
                 <button type="submit" class="btn-login">Ingresar</button>
             </form>
 
@@ -44,6 +44,6 @@
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../js/login.js"></script>
+    
 </body>
 </html>
