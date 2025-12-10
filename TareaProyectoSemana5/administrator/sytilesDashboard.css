@@ -158,15 +158,18 @@ body {
     margin-bottom: 16px;
 }
 
-/* PLACEHOLDER (área vacía para que luego metas tu diseño) */
-
 .placeholder {
     border-radius: 16px;
     border: 2px dashed #cbd5f5;
     background: #ffffff;
     min-height: 260px;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    padding: 16px;           
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
+
 
 /* RESPONSIVE */
 
@@ -186,4 +189,389 @@ body {
     .content {
         padding: 16px;
     }
+}
+
+/* ====== TARJETAS INFORMATIVAS DE USUARIOS ====== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.stat-card {
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+}
+
+.stat-card::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    opacity: 0.25;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.stat-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.9;
+}
+
+.stat-value {
+    display: block;
+    margin-top: 6px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.stat-extra {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Colores de cada tarjeta */
+.stat-blue {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.stat-green {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.stat-purple {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.stat-orange {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.usuarios-box {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    min-height: 140px;
+}
+
+/* ====== BLOQUE PRINCIPAL DEL DASHBOARD ====== */
+
+.dashboard-block {
+    padding: 20px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ====== MÉTRICAS SUPERIORES ====== */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.metric-card {
+    background: #111827;
+    color: #e5e7eb;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.metric-title {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.metric-number {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.metric-sub {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* ====== PARTE INFERIOR ====== */
+
+.dashboard-lower {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* ACTIVIDAD RECIENTE */
+
+.activity-box {
+    background: #18212f; /* gris azulado elegante */
+    color: #e5e7eb;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+
+.activity-box h3 {
+    margin-bottom: 14px;
+}
+
+.activity-item {
+    display: grid;
+    grid-template-columns: 100px 1fr 30px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-user {
+    font-weight: 500;
+}
+
+.activity-desc {
+    opacity: 0.8;
+}
+
+.activity-time {
+    text-align: right;
+    opacity: 0.6;
+}
+
+/* USUARIOS RECIENTES */
+
+.recent-users-box {
+    background: #18212f; /* mismo color, unidad visual */
+    padding: 16px;
+    border-radius: 14px;
+    color: #e5e7eb;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+
+.recent-users-box h3 {
+    margin-bottom: 14px;
+}
+
+.recent-users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.recent-users-table th,
+.recent-users-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.recent-users-table tr {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.recent-users-table tr:last-child {
+    border-bottom: none;
+}
+
+.recent-users-table th {
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.crear-wrapper {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-style: solid;
+    border-width: 0;
+}
+
+.card-users-list,
+.card-user-form {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    padding: 18px 20px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.form-group input,
+.form-group select {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+    outline: none;
+    transition: border 0.15s, box-shadow 0.15s;
+    background-color: #f9fafb;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0b63f3;
+    box-shadow: 0 0 0 1px rgba(11, 99, 243, 0.25);
+    background-color: #ffffff;
+}
+
+.form-actions {
+    margin-top: 10px;
+}
+
+.btn-large {
+    padding: 10px 24px;
+    font-size: 14px;
+}
+/* ====== TABLA BONITA PARA USUARIOS (CREAR USUARIO) ====== */
+
+.card-users-list .table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* esquinas redondeadas en la tabla */
+}
+
+.card-users-list .table-wrapper thead {
+    background: #f3f4ff;
+}
+
+.card-users-list .table-wrapper th,
+.card-users-list .table-wrapper td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-users-list .table-wrapper th {
+    font-weight: 600;
+    color: #4b5563;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.card-users-list .table-wrapper tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.card-users-list .table-wrapper tbody tr:hover {
+    background: #eef2ff;
+    transition: background 0.15s ease-in-out;
+}
+
+
+/* ====== BOTÓN AZUL BONITO (REGISTRAR CLIENTE) ====== */
+
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 500;
+    outline: none;
+    background: transparent;
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.05s ease;
+}
+
+.btn-primary {
+    background: #0b63f3;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(11, 99, 243, 0.35);
+}
+
+.btn-primary:hover {
+    background: #0b4ad8;
+    box-shadow: 0 10px 24px rgba(11, 99, 243, 0.45);
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(11, 99, 243, 0.35);
+}
+/* ====== BOTÓN ROJO (ELIMINAR) ====== */
+
+.btn-danger {
+    background: #dc2626;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.05s ease;
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.35);
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+    box-shadow: 0 10px 24px rgba(185, 28, 28, 0.45);
+}
+
+.btn-danger:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.35);
 }
