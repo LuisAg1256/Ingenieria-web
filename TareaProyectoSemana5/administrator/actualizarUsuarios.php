@@ -19,7 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Sanitizar ID
         $id_safe = intval($id);
 
-        // UPDATE basado en el ID
+        // Si quieres guardar la clave en md5 como en crearUsuario:
+        // $contraHash = md5($contra);
+        // y usar $contraHash en lugar de $contra
+
         $sql = "UPDATE usuarios
                 SET nombre   = '$nombre',
                     apellido = '$apellido',
@@ -32,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Volver al dashboard
-    header("Location: ../administrator/dashboard.php");
+    header("Location: ../administrator/dashboard.php?seccion=actualizar");
     exit;
 } else {
     header("Location: ../administrator/dashboard.php");

@@ -2,23 +2,20 @@
 include("../dll/config.php");
 include("../dll/class_mysqli.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Puede venir por GET (desde el botón) o por POST (por si acaso)
+$id = $_GET['id'] ?? ($_POST['idEliminar'] ?? '');
 
-    $id = $_POST['idEliminar'] ?? '';
+if ($id !== '') {
 
-    if ($id !== '') {
+    $miconexion = new clase_mysqli;
+    $miconexion->conectar(DBHOST, DBUSER, DBPASS, DBNAME);
 
-        $miconexion = new clase_mysqli;
-        $miconexion->conectar(DBHOST, DBUSER, DBPASS, DBNAME);
+    $id_safe = intval($id);
 
-        // Convertir ID a entero por seguridad
-        $id_safe = intval($id);
+    $sql = "DELETE FROM usuarios WHERE id = $id_safe";
+    $miconexion->consulta($sql);
+}
 
-        $sql = "DELETE FROM usuarios WHERE id = $id_safe";
-
-        $miconexion->consulta($sql);
-    }
-
-    header("Location: ../administrator/dashboard.php");
-    exit;
-} 
+// Siempre volvemos al dashboard
+header("Location: ../administrator/dashboard.php");
+exit;

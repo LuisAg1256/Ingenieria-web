@@ -1,6 +1,18 @@
 <?php
     include("security/seguridad.php");
     // Aquí ya deberías tener tu objeto $miconexion disponible
+
+    // ---- LÓGICA PARA BUSCAR USUARIO POR ID (ACTUALIZAR) ----
+    $usuarioEditar = null;
+
+    if (isset($_GET['idBuscar']) && $_GET['idBuscar'] !== '') {
+        $idBuscar = intval($_GET['idBuscar']);
+
+        // Buscamos ese usuario por ID
+        $miconexion->consulta("SELECT * FROM usuarios WHERE id = $idBuscar");
+        $usuarioEditar = $miconexion->consulta_lista();
+        // $usuarioEditar[0]=id, [1]=nombre, [2]=apellido, [3]=correo, [4]=clave, [5]=roll
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,6 +22,8 @@
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="sytilesDashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- IMPORTANTE: defer -->
+    <script src="app.js" defer></script>
 </head>
 <body>
     <div class="layout">
@@ -26,7 +40,7 @@
 
                 <button class="menu-item active" data-section="usuarios">
                     <span class="menu-dot"></span>
-                    Usuarios
+                    Dashboard
                 </button>
 
                 <button class="menu-item" data-section="actualizar">
@@ -90,7 +104,7 @@
                             </div>
                         </div>
 
-                        <!-- Bloque estilo panel (como el de la foto) -->
+                        <!-- Bloque estilo panel -->
                         <div class="dashboard-block">
 
                             <!-- MÉTRICAS PRINCIPALES -->
@@ -195,90 +209,10 @@
                         </div><!-- /dashboard-block -->
                     </div><!-- /placeholder -->
                 </section>
+
                 <!-- ================== ACTUALIZAR USUARIOS ================== -->
-<section id="actualizar" class="section">
-    <h2 class="section-title">Actualizar usuarios</h2>
-
-    <div class="placeholder crear-wrapper">
-
-        <!-- LISTA DE USUARIOS EXISTENTES -->
-        <div class="card-users-list">
-            <h3 class="card-title">Usuarios registrados</h3>
-
-            <div class="table-wrapper">
-                <?php
-
-                    $miconexion->consulta("SELECT id, nombre, apellido, roll FROM usuarios");
-                    $miconexion->verconsulta();
-                ?>
-            </div>
-        </div>
-
-        <!-- FORMULARIO PARA ACTUALIZAR USUARIO POR ID -->
-        <div class="card-user-form">
-            <h3 class="card-title">Actualizar datos de un usuario</h3>
-
-            <form method="POST" action="actualizarUsuarios.php" class="user-form">
-
-                <!-- ID DEL USUARIO A MODIFICAR -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="idEditar">ID del usuario a modificar</label>
-                        <input type="number" id="idEditar" name="idEditar" required>
-                    </div>
-                </div>
-
-                <!-- NUEVOS DATOS -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nombreEditar">Nombre</label>
-                        <input type="text" id="nombreEditar" name="nombreEditar" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="apellidoEditar">Apellido</label>
-                        <input type="text" id="apellidoEditar" name="apellidoEditar" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="correoEditar">Correo</label>
-                        <input type="email" id="correoEditar" name="correoEditar" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contraEditar">Contraseña</label>
-                        <input type="password" id="contraEditar" name="contraEditar" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="tipoEditar">Tipo de usuario (roll)</label>
-                        <select id="tipoEditar" name="tipoEditar" required>
-                            <option value="">Seleccione...</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Usuario</option>
-                            <option value="3">Empleado</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary btn-large">
-                        Actualizar usuario
-                    </button>
-                </div>
-            </form>
-        </div>
-
-    </div>
-</section>
-
-                <!-- ================== ELIMINAR USUARIOS ================== -->
-                <section id="eliminar" class="section">
-                    <h2 class="section-title">Eliminar usuarios</h2>
+                <section id="actualizar" class="section">
+                    <h2 class="section-title">Actualizar usuarios</h2>
 
                     <div class="placeholder crear-wrapper">
 
@@ -288,28 +222,118 @@
 
                             <div class="table-wrapper">
                                 <?php
-                                    // MOSTRAR: id, nombre, apellido, roll
                                     $miconexion->consulta("SELECT id, nombre, apellido, roll FROM usuarios");
                                     $miconexion->verconsulta();
                                 ?>
                             </div>
                         </div>
 
-                        <!-- FORMULARIO PARA ELIMINAR POR ID -->
+                        <!-- FORMULARIO BUSCAR POR ID -->
                         <div class="card-user-form">
-                            <h3 class="card-title">Eliminar usuario por ID</h3>
+                            <h3 class="card-title">Buscar usuario por ID</h3>
 
-                            <form method="POST" action="eliminarUsuario.php" class="user-form">
+                            <form method="GET" action="dashboard.php" class="user-form">
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="idEliminar">ID del usuario</label>
-                                        <input type="number" id="idEliminar" name="idEliminar" required>
+                                        <label for="idBuscar">ID del usuario</label>
+                                        <input
+                                            type="number"
+                                            id="idBuscar"
+                                            name="idBuscar"
+                                            required
+                                            value="<?php echo ($usuarioEditar && $usuarioEditar[0]) ? $usuarioEditar[0] : ''; ?>"
+                                        >
+                                    </div>
+
+                                    <div class="form-group" style="align-self: end;">
+                                        <button type="button" id="btnBuscar" class="btn btn-primary btn-large">
+                                            Buscar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- FORMULARIO PARA ACTUALIZAR USUARIO -->
+                        <div class="card-user-form">
+                            <h3 class="card-title">Actualizar datos de un usuario</h3>
+
+                            <form method="POST" action="actualizarUsuarios.php" class="user-form">
+
+                                <!-- ID oculto (lo rellena el buscar) -->
+                                <input
+                                    type="hidden"
+                                    name="idEditar"
+                                    value="<?php echo ($usuarioEditar && $usuarioEditar[0]) ? $usuarioEditar[0] : ''; ?>"
+                                >
+
+                                <!-- NUEVOS DATOS -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="nombreEditar">Nombre</label>
+                                        <input
+                                            type="text"
+                                            id="nombreEditar"
+                                            name="nombreEditar"
+                                            required
+                                            value="<?php echo ($usuarioEditar && $usuarioEditar[1]) ? $usuarioEditar[1] : ''; ?>"
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="apellidoEditar">Apellido</label>
+                                        <input
+                                            type="text"
+                                            id="apellidoEditar"
+                                            name="apellidoEditar"
+                                            required
+                                            value="<?php echo ($usuarioEditar && $usuarioEditar[2]) ? $usuarioEditar[2] : ''; ?>"
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="correoEditar">Correo</label>
+                                        <input
+                                            type="email"
+                                            id="correoEditar"
+                                            name="correoEditar"
+                                            required
+                                            value="<?php echo ($usuarioEditar && $usuarioEditar[3]) ? $usuarioEditar[3] : ''; ?>"
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="contraEditar">Contraseña</label>
+                                        <input
+                                            type="password"
+                                            id="contraEditar"
+                                            name="contraEditar"
+                                            placeholder="Escribe una nueva contraseña"
+                                            required
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="tipoEditar">Tipo de usuario (roll)</label>
+                                        <?php
+                                            $rollActual = ($usuarioEditar && isset($usuarioEditar[5])) ? $usuarioEditar[5] : '';
+                                        ?>
+                                        <select id="tipoEditar" name="tipoEditar" required>
+                                            <option value="">Seleccione...</option>
+                                            <option value="1" <?php echo ($rollActual == 1) ? 'selected' : ''; ?>>Admin</option>
+                                            <option value="2" <?php echo ($rollActual == 2) ? 'selected' : ''; ?>>Usuario</option>
+                                            <option value="3" <?php echo ($rollActual == 3) ? 'selected' : ''; ?>>Empleado</option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="form-actions">
-                                    <button type="submit" class="btn btn-danger btn-large">
-                                        Eliminar usuario
+                                    <button type="submit" class="btn btn-primary btn-large">
+                                        Actualizar usuario
                                     </button>
                                 </div>
                             </form>
@@ -318,7 +342,67 @@
                     </div>
                 </section>
 
-    
+                <!-- ================== ELIMINAR USUARIOS ================== -->
+                <section id="eliminar" class="section">
+                    <h2 class="section-title">Eliminar usuarios</h2>
+
+                    <div class="placeholder crear-wrapper">
+
+                        <!-- LISTA DE USUARIOS EXISTENTES CON BOTÓN BORRAR -->
+                        <div class="card-users-list">
+                            <h3 class="card-title">Usuarios registrados</h3>
+
+                            <div class="table-wrapper">
+                                <?php
+                                    // Conexión directa con mysqli para esta tabla
+                                    $cn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                                    if ($cn->connect_error) {
+                                        die("Error de conexión: " . $cn->connect_error);
+                                    }
+
+                                    $sql = "SELECT id, nombre, apellido, roll FROM usuarios";
+                                    $res = $cn->query($sql);
+                                ?>
+
+                                <table class="recent-users-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Rol</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($row = $res->fetch_assoc()): ?>
+                                            <tr>
+                                                <td><?= $row['id']; ?></td>
+                                                <td><?= $row['nombre']; ?></td>
+                                                <td><?= $row['apellido']; ?></td>
+                                                <td><?= $row['roll']; ?></td>
+                                                <td>
+                                                    <a
+                                                        href="eliminarUsuario.php?id=<?= $row['id']; ?>"
+                                                        class="btn btn-danger btn-small"
+                                                        onclick="return confirm('¿Seguro que deseas eliminar al usuario <?= $row['nombre'] . ' ' . $row['apellido']; ?>?');"
+                                                    >
+                                                        Borrar
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+
+                                <?php
+                                    $res->free();
+                                    $cn->close();
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- ================== CREAR USUARIO ================== -->
                 <section id="crear" class="section">
@@ -326,24 +410,11 @@
 
                     <div class="placeholder crear-wrapper">
 
-                        <!-- LISTA DE USUARIOS EXISTENTES -->
-                        <div class="card-users-list">
-                            <h3 class="card-title">Usuarios registrados</h3>
-
-                            <div class="table-wrapper">
-                                <?php
-                                    // Consulta simple usando tu clase y tu estilo
-                                    $miconexion->consulta("SELECT id, nombre, apellido, roll FROM usuarios");
-                                    $miconexion->verconsulta();
-                                ?>
-                            </div>
-                        </div>
-
                         <!-- FORMULARIO PARA CREAR NUEVO USUARIO -->
                         <div class="card-user-form">
                             <h3 class="card-title">Registrar nuevo usuario</h3>
 
-                            <form  action="crearUsuario.php" method="POST"  class="user-form">
+                            <form action="crearUsuario.php" method="POST" class="user-form">
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
@@ -388,6 +459,18 @@
                             </form>
                         </div>
 
+                        <!-- LISTA DE USUARIOS EXISTENTES (CREAR) -->
+                        <div class="card-users-list">
+                            <h3 class="card-title">Usuarios registrados</h3>
+
+                            <div class="table-wrapper">
+                                <?php
+                                    $miconexion->consulta("SELECT id, nombre, apellido, roll FROM usuarios");
+                                    $miconexion->verconsulta();
+                                ?>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
 
@@ -396,6 +479,5 @@
 
     </div><!-- /layout -->
 
-    <script src="app.js"></script>
 </body>
 </html>

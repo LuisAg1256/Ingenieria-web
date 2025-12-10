@@ -22,20 +22,22 @@
             <h2>Bienvenido</h2>
             <p class="sub">Inicia sesión para continuar</p>
 
-            <form action="../dll/validar.php" id="formLogin" method="post">
+          <form action="../dll/validar.php" id="formLogin" method="post">
+    <div class="input-group mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="email" id="correo" name="correo" class="form-control"
+               placeholder="Ingresa tu correo" required>
+    </div>
 
-                <div class="input-group mb-3">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input type="email" id="correo" name="correo" class="form-control" placeholder="Ingresa tu correo" required>
-                </div>
+    <div class="input-group mb-3">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="password" id="clave" name="clave" class="form-control"
+               placeholder="Ingresa tu contraseña" required>
+    </div>
 
-                <div class="input-group mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Ingresa tu contraseña" required>
-                </div>
-                
-                <button type="submit" class="btn-login">Ingresar</button>
-            </form>
+    <button type="submit" class="btn-login">Ingresar</button>
+</form>
+
 
             <p id="mensajeError" class="mensaje-error"></p>
         </div>
