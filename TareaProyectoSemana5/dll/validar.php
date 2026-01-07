@@ -5,7 +5,7 @@
 if (!empty($_POST['correo']) && !empty($_POST['clave'])) {
 
     $username = $_POST['correo'];
-    $userpass = md5($_POST['clave']);   // en la BD guardaremos MD5(clave)
+    $userpass = ($_POST['clave']);   // en la BD guardaremos MD5(clave)
 
     include("config.php");
     include("class_mysqli.php");
